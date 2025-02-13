@@ -1,11 +1,24 @@
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        int idx = 0;
-        for(int i=m;n!=0;n--)
+        int idx = nums1.size()-1;
+        int left = m-1;
+        int right = n-1;
+        for(int i=idx;i>=0;i--)
         {
-            nums1[i++] = nums2[idx++];
+            if(left<0){
+                nums1[i]=nums2[right--];
+                continue;
+            }
+            if(right<0){
+                nums1[i]=nums1[left--];
+                continue;
+            }
+            if(nums1[left] >= nums2[right])
+                nums1[i]=nums1[left--];
+            else
+                nums1[i]=nums2[right--];
         }
-        sort(nums1.begin(),nums1.end());
+        
     }
 };
