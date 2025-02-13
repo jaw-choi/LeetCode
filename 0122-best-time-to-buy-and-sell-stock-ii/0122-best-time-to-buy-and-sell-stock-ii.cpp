@@ -6,17 +6,13 @@ public:
         int ans = 0;
         for(int i=0;i<prices.size();i++)
         {
-            if(prices[left] >= prices[i])
-            {
-                left = i;
-            }
+            if(prices[left] >= prices[i])            
+                left = i;            
             else
             {
                 if(i+1 < prices.size())
                 {
-                    if(prices[i]<prices[i+1])
-                        continue;
-                    else{
+                    if(prices[i]>=prices[i+1]){
                         ans += prices[i]-prices[left];
                         left = i+1;
                     }
