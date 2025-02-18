@@ -6,17 +6,7 @@ public:
         {
             if(ratings[i-1] < ratings[i])
             {
-                if(candy[i-1] == candy[i])
-                    candy[i]++;
-                else if(candy[i-1] > candy[i])
                     candy[i] = candy[i-1] + 1;
-            }
-            else if(ratings[i-1] > ratings[i])
-            {
-                if(candy[i-1] == candy[i])
-                    candy[i-1]++;
-                else if(candy[i-1] < candy[i])
-                    candy[i-1] = candy[i] + 1;
             }
         }
         
