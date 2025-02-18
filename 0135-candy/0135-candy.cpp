@@ -19,7 +19,8 @@ public:
                     candy[i-1] = candy[i] + 1;
             }
         }
-        for(int i=1;i<ratings.size();i++)
+        
+        for(int i=ratings.size()-1;i>0;i--)
         {
             if(ratings[i-1] < ratings[i])
             {
@@ -36,11 +37,11 @@ public:
                     candy[i-1] = candy[i] + 1;
             }
         }
+
         return accumulate(candy.begin(),candy.end(),0);
     }
 };
-//1,1,1,1,1
-//1,2,1,1,1
-//1,2,3,1,1
-//1,2,3,1,2,2,1
-//1,2,3,1,3,2,1
+//1,1,1,1,1,1,1
+//1,2,1,1,1,1,1
+//1,2,3,1,1,1,1
+//1,2,5,4,3,2,1
