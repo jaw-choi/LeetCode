@@ -4,19 +4,36 @@ public:
         vector<int> ans;
         sort(potions.begin(),potions.end());
         int size_ = 0;
+        
         for(int i=0;i<spells.size();i++)
         {
             size_ = potions.size();
             double border = success / (double)spells[i];
-            for(int j=0;j<potions.size();j++)
+            int left = 0;
+            int right = potions.size()-1;
+            int tmp = 0;
+            while(left<=right)
             {
-                if((double)potions[j] < border)
-                    size_--;
+                int mid = (left+right)/2;
+                if((double)potions[mid] <border){
+                    left = mid + 1;
+                    tmp = mid+1;
+                }
                 else
-                    break;
+                    right = mid - 1;
+                //cout << tmp <<endl;
             }
-            ans.push_back(size_);
+            cout <<tmp<< endl;
+            // for(int j=0;j<potions.size();j++)
+            // {
+            //     if((double)potions[j] < border)
+            //         size_--;
+            //     else
+            //         break;
+            // }
+            ans.push_back(size_-tmp);
         }
+        
         return ans;
     }
 };
