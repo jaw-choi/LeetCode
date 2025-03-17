@@ -15,7 +15,7 @@ public:
         sort(ranks.begin(),ranks.end());
         long long ans;
         long long left = 1;
-        long long right = 1e14;
+        long long right = ranks[ranks.size()-1]*(long long)cars*cars;
         while(left<=right)
         {
             long long mid = (left+right)/2;
