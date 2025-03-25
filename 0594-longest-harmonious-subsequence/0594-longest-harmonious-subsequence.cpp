@@ -2,7 +2,7 @@ class Solution {
 public:
     int findLHS(vector<int>& nums) {
         int ans = 0;
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         for(auto n : nums)
             mp[n]++;
         int left = *min_element(nums.begin(),nums.end());
