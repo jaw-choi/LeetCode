@@ -2,6 +2,7 @@ class Solution {
 public:
     int findLHS(vector<int>& nums) {
         int ans = 0;
+        int cnt;
         unordered_map<int,int> mp;
         for(auto n : nums)
             mp[n]++;
@@ -11,7 +12,7 @@ public:
             if(mp.find(nums[i])!=mp.end() &&
                mp.find(nums[i]+1)!=mp.end())
                {
-                int cnt = mp[nums[i]]+mp[nums[i]+1];
+                cnt = mp[nums[i]]+mp[nums[i]+1];
                 if(ans < cnt)
                     ans = cnt;
                 //cout << nums[i]<<","<<ans << endl;
