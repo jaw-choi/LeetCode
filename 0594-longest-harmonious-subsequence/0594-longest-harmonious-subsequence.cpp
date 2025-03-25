@@ -5,8 +5,7 @@ public:
         unordered_map<int,int> mp;
         for(auto n : nums)
             mp[n]++;
-        int left = *min_element(nums.begin(),nums.end());
-        int right = *max_element(nums.begin(),nums.end());
+
         for(int i = 0;i<nums.size();i++)
         {
             if(mp.find(nums[i])!=mp.end() &&
