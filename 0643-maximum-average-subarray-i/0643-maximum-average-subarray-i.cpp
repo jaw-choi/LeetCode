@@ -9,12 +9,12 @@ public:
         for(int i=0;i<k;i++)
             tmp+=nums[i];
         sum = tmp;
-        cout <<tmp <<endl;
+        //cout <<tmp <<endl;
         for(int i=0;i<nums.size()-k;i++)
         {
             tmp = tmp - nums[i]+nums[i+k];
             sum = max(sum,tmp);
-            cout << sum <<endl;
+            //cout << sum <<endl;
         }
     return sum/k;
     }
