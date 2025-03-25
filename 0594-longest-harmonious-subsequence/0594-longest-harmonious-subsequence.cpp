@@ -9,13 +9,9 @@ public:
 
         for(int i = 0;i<nums.size();i++)
         {
-            if(mp.find(nums[i])!=mp.end() &&
-               mp.find(nums[i]+1)!=mp.end())
-               {
-                cnt = mp[nums[i]]+mp[nums[i]+1];
-                if(ans < cnt)
-                    ans = cnt;
-                //cout << nums[i]<<","<<ans << endl;
+            if(mp.find(nums[i])!=mp.end() && mp.find(nums[i]+1)!=mp.end()){
+                ans = max(ans,mp[nums[i]]+mp[nums[i]+1]);
+
                }
         }
         return ans;
