@@ -13,9 +13,6 @@ public:
             set<int> s(nums.begin()+i,nums.end());
             if(s.size()==nums.size()-i)
                 return answer;
-            for(auto ss:s)
-                cout << ss << " ";
-            cout <<endl;
             answer++;
         }
         return answer;
