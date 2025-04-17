@@ -7,6 +7,7 @@ public:
         {
             mp[nums[i]].push_back(i);
         }
+        
         for(auto m : mp)
         {
             for(int i=0;i<m.second.size();i++)
