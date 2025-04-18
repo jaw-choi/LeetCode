@@ -5,12 +5,12 @@ public:
         int idx = 0;
         int cnt = 0;
         int lastTime = 0;
-        unordered_map<int,int> mp;
+        unordered_set<int> mp;
         for(auto p : passengers)
-            mp[p]++;
+            mp.insert(p);
         sort(passengers.begin(),passengers.end());
         sort(buses.begin(),buses.end());
-        
+
         for(int i=0;i<buses.size();i++)
         {
             int busTime = buses[i];
