@@ -16,10 +16,8 @@ public:
                 }
                 if(j<dp[i-1].size())
                     idx = j;
-                //cout << cnt <<" "<< num <<" "<<j<<endl;
-                dp[i].push_back(cnt+'0');
-                dp[i].push_back(num);
-                //cout<<dp[i]<<endl;
+                dp[i]+= to_string(cnt)+num;
+
             }
         }
         return dp[n];        
