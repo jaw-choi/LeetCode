@@ -24,7 +24,6 @@ public:
             diffMin = min(diffMin,curr);
             if(abs(curr) > diff)
                 return 0;
-                cout <<curr<<endl;
         }
         upper-=diffMax;
         lower-=diffMin;
