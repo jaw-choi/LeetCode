@@ -21,7 +21,7 @@ public:
         //3,2,2,1,1,4,1,1
         while(left+minimumSize-1<nums.size())
         {
-            cout << ans << ","<<left<<","<<right<<endl;
+            //cout << ans << ","<<left<<","<<right<<endl;
             if(helper(left,right,minimumSize,nums))
                 ans += nums.size() - right;
             else{
