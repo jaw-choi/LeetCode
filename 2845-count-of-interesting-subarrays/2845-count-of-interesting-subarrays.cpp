@@ -1,16 +1,18 @@
 class Solution {
 public:
     long long countInterestingSubarrays(vector<int>& nums, int modulo, int k) {
-        int n = nums.size();
-        unordered_map<int, int> cnt;
-        long long res = 0;
+        long long ans = 0;
         int prefix = 0;
-        cnt[0] = 1;
-        for (int i = 0; i < n; i++) {
-            prefix += nums[i] % modulo == k;
-            res += cnt[(prefix - k + modulo) % modulo];
-            cnt[prefix % modulo]++;
+        unordered_map<int,int> mp;
+        mp[0]=1;
+        for(int i=0;i<nums.size();i++)
+        {
+            prefix+= nums[i]%modulo == k;
+            int key = (prefix-k+modulo)%modulo; //개수 -> 개수%moudlo 가 k 인지 조회용 
+            if(mp.find(key)!=mp.end())
+                ans += mp[key];
+            mp[prefix % modulo]++;// prefix 개수 기록용
         }
-        return res;
+        return ans;
     }
 };
