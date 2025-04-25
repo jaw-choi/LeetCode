@@ -7,8 +7,8 @@ public:
         mp[0]=1;
         for(int i=0;i<nums.size();i++)
         {
-            prefix+= nums[i]%modulo == k;
-            int key = (prefix-k+modulo)%modulo; //개수 -> 개수%moudlo 가 k 인지 조회용 
+            prefix+= (nums[i]%modulo == k);
+            int key = prefix%modulo; //개수 -> subarr이 몇개인지 조회용 
             if(mp.find(key)!=mp.end())
                 ans += mp[key];
             mp[prefix % modulo]++;// prefix 개수 기록용
