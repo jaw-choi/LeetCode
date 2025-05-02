@@ -1,98 +1,34 @@
 class Solution {
 public:
     string pushDominoes(string dominoes) {
-        string ans="";
-        queue<char> q;
-        int idx = 0;
-        char mostLeft=' ';
-        for(int i=0;i<dominoes.size();i++)
-        {
-            if(mostLeft==' '){
-                mostLeft = dominoes[i];
-                idx = i;
+        int n = dominoes.size();
+        string result = dominoes;
+        int i = 0, j = 0;
+
+        while (i < n) {
+            // 다음 도미노 위치 찾기
+            while (j < n && result[j] == '.') j++;
+
+            char left = (i == 0) ? 'L' : result[i - 1];
+            char right = (j == n) ? 'R' : result[j];
+
+            if (left == right) {
+                for (int k = i; k < j; ++k)
+                    result[k] = right;
+            } else if (left == 'R' && right == 'L') {
+                int l = i, r = j - 1;
+                while (l < r) {
+                    result[l++] = 'R';
+                    result[r--] = 'L';
+                }
+                // 가운데가 홀수면 자동으로 '.' 유지됨
             }
-            else{
-                if(mostLeft=='.' && dominoes[i]=='L'){
-                    for(int j=idx;j<i;j++){
-                        ans+='L';
-                    }
-                    idx=i;
-                    mostLeft='L';
-                }
-                else if(mostLeft=='.' && dominoes[i]=='R'){
-                    for(int j=idx;j<i;j++)
-                        ans+='.';
-                    idx=i;
-                    mostLeft='R';
-                }
-                else if(mostLeft=='L' && dominoes[i]=='.'){
-                    ans+='L';
-                    idx=i;
-                    mostLeft='.';
-                }
-                else if(mostLeft=='L' && dominoes[i]=='L'){
-                    ans+='L';
-                    idx=i;
-                    mostLeft='L';
-                }
-                else if(mostLeft=='L' && dominoes[i]=='R'){
-                    ans+='L';
-                    idx = i;
-                    mostLeft='R';
-                }
-                else if(mostLeft=='R' && dominoes[i]=='R'){
-                    for(int j=idx;j<i;j++)
-                        ans+='R';
-                    idx=i;
-                    mostLeft='R';
-                }
-                else if(mostLeft=='R' && dominoes[i]=='L'){
-                    int left = idx;
-                    int right = i;
-                    int cnt = right - left + 1;
-                    if(cnt%2==0){
-                        for(int j=0;j<cnt/2;j++)
-                            ans+='R';
-                        for(int j=0;j<cnt/2-1;j++)
-                            ans+='L';
-                    }
-                    else{
-                        for(int j=0;j<cnt/2;j++)
-                            ans+='R';
-                        ans+='.';
-                        for(int j=0;j<cnt/2-1;j++)
-                            ans+='L';
-                    }
-                    idx=i;
-                    mostLeft='L';
-                }
-            }
-            //cout << ans << endl;
+            // else: 'L'...'R' 은 아무것도 안 바꿈
+
+            i = j + 1;
+            j = i;
         }
-        if(mostLeft=='.'){
-            for(int i=0;i<dominoes.size()-idx;i++)
-                ans+='.';
-        }
-        else if(mostLeft=='R'){
-            for(int i=0;i<dominoes.size()-idx;i++)
-                ans+='R';
-        }
-        else if(mostLeft=='L'){
-            for(int i=0;i<dominoes.size()-idx;i++)
-                ans+='L';
-        }
-        return ans;
+
+        return result;
     }
 };
-//.인 경우
-    //.이다가 L인경우
-    //.이다가 R인경우
-//L인 경우
-    //L이다가 R인경우
-    //L이다가 .인경우
-//R인 경우
-    //R이다가 L인 경우
-    //R이다가 .인 경우
-//가장 좌측이 L인지 R인지 .인지 알고있어야함, 
-//LR == L...R
-//RL == R...L, R..L
