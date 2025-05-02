@@ -22,31 +22,29 @@ public:
                 else if(mostLeft=='.' && dominoes[i]=='R'){
                     for(int j=idx;j<i;j++)
                         ans+='.';
-                    mostLeft='R';
                     idx=i;
+                    mostLeft='R';
                 }
                 else if(mostLeft=='L' && dominoes[i]=='.'){
-                    //if(idx==0)
-                        ans+='L';
-                    mostLeft='.';
+                    ans+='L';
                     idx=i;
+                    mostLeft='.';
                 }
                 else if(mostLeft=='L' && dominoes[i]=='L'){
                     ans+='L';
                     idx=i;
-                    //if(idx==dominoes.size()-1)
-                        //ans+='L';
+                    mostLeft='L';
                 }
                 else if(mostLeft=='L' && dominoes[i]=='R'){
-                    //if(idx==0)
-                        ans+='L';
-                    mostLeft='R';
+                    ans+='L';
                     idx = i;
+                    mostLeft='R';
                 }
                 else if(mostLeft=='R' && dominoes[i]=='R'){
                     for(int j=idx;j<i;j++)
                         ans+='R';
                     idx=i;
+                    mostLeft='R';
                 }
                 else if(mostLeft=='R' && dominoes[i]=='L'){
                     int left = idx;
@@ -67,10 +65,6 @@ public:
                     }
                     idx=i;
                     mostLeft='L';
-                    //4,7 -> 7-4+1 = 4
-                    //4567 -> RRLL
-                    //4,8 -> 8-4+1 = 5
-                    //45678 -> RR.LL
                 }
             }
             //cout << ans << endl;
@@ -102,29 +96,3 @@ public:
 //가장 좌측이 L인지 R인지 .인지 알고있어야함, 
 //LR == L...R
 //RL == R...L, R..L
-
-/*
-if(dominoes[i]=='.')
-                q.push(dominoes[i]);
-            else if(dominoes[i]=='L'){
-                while(!q.empty()){
-                    if(ans=="")
-                        ans+='L';
-                    else if(ans.back()!='R')
-                        ans+='L';
-                    else
-                        ans+='.';
-                    q.pop();
-                }
-                ans+='L';
-            }
-            else{
-                if(q.empty()){
-                    ans+='R';
-                }
-                while(!q.empty()){
-                    ans+='.';//L
-                    q.pop();
-                }
-            }
-*/
