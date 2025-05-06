@@ -25,7 +25,7 @@ public:
                 cnt = 1;
             }
         }   
-        if(cnt!=1)
+        //if(cnt!=1)
             ans += (cnt*(cnt-1)/2);
         return ans;
     }
