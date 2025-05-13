@@ -3,13 +3,13 @@ public:
     int lengthAfterTransformations(string s, int t) {
         constexpr int mod = 1e9 + 7;
         int ans = 0;
-        vector<int> cnt(26,0);
+        vector<int> cnt(26);
         for(auto ch : s)
             cnt[ch-'a']++;
 
         for(int i=0;i<t;i++)
         {
-            vector<int> nxt(26,0);
+            vector<int> nxt(26);
             nxt[0] = cnt[25];
             nxt[1] = (cnt[25]+cnt[0])%mod;
             for(int j=2;j<26;j++)
