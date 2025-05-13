@@ -1,37 +1,32 @@
 class Solution {
 public:
     int lengthAfterTransformations(string s, int t) {
-        // a -> 26, ab
-        // b -> 26, bc
-        // ...
-        // y -> 26, yz
+        constexpr int mod = 1e9 + 7;
+        int ans = 0;
+        vector<int> cnt(26,0);
+        for(auto ch : s)
+            cnt[ch-'a']++;
 
-        // z -> 1, ab
-        // ab -> 24, yz
-        // yz -> 1, zab
-        // z -> 26, zab
-
-        constexpr int MOD = 1e9 + 7;
-        long cnts[26] = {};
-        for (char c : s) ++cnts[c - 'a'];
-        while (t >= 26) {
-            long tmp[26] = {};
-            for (int i = 0; i < 25; ++i) tmp[i + 1] += cnts[i];
-            tmp[0] += cnts[25];
-            tmp[1] += cnts[25];
-            for (int i = 0; i < 26; ++i) {
-                cnts[i] += tmp[i];
-                cnts[i] %= MOD;
+        for(int i=0;i<t;i++)
+        {
+            vector<int> nxt(26,0);
+            nxt[0] = cnt[25];
+            nxt[1] = (cnt[25]+cnt[0])%mod;
+            for(int j=2;j<26;j++)
+            {
+                nxt[j] = cnt[j-1];
             }
-            t -= 26;
+            cnt = move(nxt);
         }
+        for(auto c : cnt)
+            ans = (ans+c)%mod;
 
-        long ans = 0;
-        for (int i = 0; i < 26; ++i) {
-            ans += cnts[i];
-            if (i + t >= 26) ans += cnts[i];
-            ans %= MOD;
-        }
-        return ans % MOD;
+        return ans;
     }
 };
+struct FastIO {
+    FastIO() {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+    }
+} fastio;
