@@ -3,69 +3,30 @@ public:
     int longestPalindrome(vector<string>& words) {
         int ans = 0;
         int cnt = 0;
-        bool flag = false;
-        unordered_map<string,int> mmp;
-        unordered_map<string,int> mp;
-        for(int i=0;i<words.size();i++)
-        {
-            if(words[i][0]!=words[i][1])
-                mmp[words[i]]++;
+        unordered_map<string, int> diff, same;
+        for (const auto& word : words) {
+            if (word[0] == word[1])
+                same[word]++;
             else
-                mp[words[i]]++;
+                diff[word]++;
         }
-        for(auto mm : mmp)
-        {
-            string tmp = mm.first;
-            string rtmp;
-            rtmp+=tmp[1];
-            rtmp+=tmp[0];
-            ans += min(mmp[tmp],mmp[rtmp]);
-            
-        }
-        ans*=2;
-        cout <<ans;
-        int oddCnt = 0;
-        for(auto m :mp)
-        {
-            if(m.second %2==1)
-                oddCnt = max(oddCnt,m.second);
-        }
-        int count = 0;
-        for(auto m :mp)
-        {
-            if(m.second % 2 ==0)
-                cnt+=m.second;
-            else{
-                if(m.second < oddCnt)
-                    cnt+=(m.second-1);
-                else{
-                    if(count==0)
-                        cnt+=(m.second);
-                    else
-                        cnt+=(m.second-1);
-                    count++;
-                }
 
+        for (const auto& [word, count] : diff) {
+            string rev = {word[1], word[0]};
+            if (diff.count(rev)) {
+                int pairCount = min(count, diff[rev]);
+                ans += pairCount * 4;
+                diff[rev] = 0; // 중복 처리 방지
             }
         }
 
-        ans += cnt*2;
-        cout<<endl<<ans;
-        return ans;
+        int centerUsed = 0, centerMax = 0;
+        for (const auto& [word, count] : same) {
+            ans += (count / 2) * 4;
+            if (count % 2 == 1)
+                centerMax = 2; // 중앙에 배치할 수 있는 팰린드롬 1개
+        }
+
+        return ans + centerMax;
     }
 };
-/*
-c	num
-ll	2
-bb	3
-xx	3  =>3
-
-lb	4
-bl	1 =>1
-
-bx	3
-xb	1 =>1
-
-lx	2
-xl	1=>1
-*/
