@@ -9,19 +9,23 @@ public:
             if(nums[i]==key)
                 keyIndex.push_back(i);
         }
-        for(auto idx : keyIndex)
+        int curr = keyIndex[0];
+        for(int i=0,j=0;i<nums.size();i++)
         {
-            for(int i=idx-k;i<=idx+k;i++)
-            {
-                if(i>=0 && i <nums.size())
-                {
-                    tmp.insert(i);
+            if(abs(i-curr)<=k)
+                ans.push_back(i);
+            else{
+                if(i<curr)
+                    continue;
+                else{
+                ++j;
+                if(j>=keyIndex.size())
+                    break;
+                curr=keyIndex[j];
+                if(abs(i-curr)<=k)
+                    ans.push_back(i);
                 }
             }
-        }
-        for(auto s : tmp)
-        {
-            ans.push_back(s);
         }
         return ans;
     }
