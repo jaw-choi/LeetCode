@@ -14,7 +14,8 @@ public:
             else if(*it=='0'){
                 cnt++;
             }
-            if(curr <= k)
+            
+            //if(curr <= k)
                 curr*=2;
         }
         return cnt;
