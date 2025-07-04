@@ -1,29 +1,17 @@
 class Solution {
 public:
-    string helper(const string& str)
-    {
-        string tmp="";
-        for(auto s : str)
-        {
-            if(s=='z')
-                tmp += 'a';
-            else
-                tmp += (s+1);
-        }
-        return tmp;
-    }
     char kthCharacter(int k) {
-        string str = "a";
-        int cnt = log2(k) + 1;
-        vector<string> dp(cnt+1,"");
-        dp[0] = "a";
-        for(int i=1;i<cnt+1;i++)
+        int ans = 0;
+        int t;
+        while(k!=1)
         {
-            dp[i] = dp[i-1];
-            dp[i] += helper(dp[i-1]);
-            cout <<dp[i]<<endl;
+            t = log2(k);
+            if((1<<t)==k){
+                t--;
+            }
+            k = k - (1<<t);
+            ans++;
         }
-
-        return dp[cnt][k-1];
+        return 'a' + ans;
     }
 };
