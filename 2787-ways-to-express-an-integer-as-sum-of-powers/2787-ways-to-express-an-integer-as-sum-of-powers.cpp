@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution {
-    static const int MOD = 1e9+7;
+    static const int MOD = 1e9+;
 
     long long ipow(long long a, int x) {
         long long r = 1;
