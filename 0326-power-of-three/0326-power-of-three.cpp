@@ -1,16 +1,13 @@
 class Solution {
 public:
     bool isPowerOfThree(int n) {
-        if(n==1)
-            return true;
-        if(n==0)
-            return false;
-        while(n%3==0)
+        set<int> s;
+        long long num = 1;
+        while(num<INT_MAX)
         {
-            n/=3;
+            s.insert(num);
+            num*=3;
         }
-        if(n!=1)
-            return false;
-        return true;
+        return s.find(n)!=s.end();
     }
 };
