@@ -33,11 +33,11 @@ static constexpr double EPS = 1e-6;
 
                 rest.back() = y-x;
                 if(dfs(rest)) return true;
-                if(fabs(y) > EPS){
+                if(y!=0){
                     rest.back() = x/y;
                     if(dfs(rest)) return true;
                 }
-                if(fabs(x) > EPS){
+                if(x!=0){
                     rest.back() = y/x;
                     if(dfs(rest)) return true;
                 }
