@@ -2,23 +2,23 @@ class Solution {
 public:
     long long zeroFilledSubarray(vector<int>& nums) {
         long long ans = 0;
-        int cnt = 0;
+        long long cnt = 0;
         int n = nums.size();
-        vector<long long> dp(n+1,0);
-        for(int i=1;i<=n;++i)
-        {
-            dp[i] = i + dp[i-1];
-        }
+        //vector<long long> dp(n+1,0);
+        // for(int i=1;i<=n;++i)
+        // {
+        //     dp[i] = i + dp[i-1];
+        // }
         for(int i=0;i<n;i++)
         {
             if(nums[i]==0)
                 cnt++;
             else{
-                ans += dp[cnt];
+                ans += cnt*(cnt+1)/2;
                 cnt = 0;
             }
         }
-        ans += dp[cnt];
+        ans += cnt*(cnt+1)/2;
         return ans;
     }
 };
