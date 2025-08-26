@@ -8,7 +8,7 @@ public:
             int l = dimensions[i][0];
             int w = dimensions[i][1];
             int dia = l*l + w*w;
-            if(curr < dia){
+            if(curr <= dia){
                 curr = dia;
                 ans = l*w;
             }
