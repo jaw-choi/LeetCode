@@ -12,7 +12,11 @@ public:
                 curr = dia;
                 ans = l*w;
             }
+            else if(curr==dia){
+                ans =max(ans,l*w);
+            }
         }
         return ans;
     }
 };
+//4225,4225
