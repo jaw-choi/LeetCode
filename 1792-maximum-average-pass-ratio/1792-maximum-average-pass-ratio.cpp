@@ -1,36 +1,29 @@
 class Solution {
 public:
     double maxAverageRatio(vector<vector<int>>& classes, int extraStudents) {
-        auto gain = [](int pass, int total) {
-            return (double)(pass + 1) / (total + 1) - (double)pass / total;
+        auto profit = [](int pass, int total){
+            return ((double)(pass+1)/(total+1)) - ((double)pass/total);
         };
-
-        // max-heap based on gain
-        auto cmp = [&](const pair<int,int>& a, const pair<int,int>& b) {
-            return gain(a.first, a.second) < gain(b.first, b.second);
-        };
-
-        priority_queue<pair<int,int>, vector<pair<int,int>>, decltype(cmp)> pq(cmp);
-
-        for (auto& c : classes) {
-            pq.push({c[0], c[1]}); // (pass, total)
+        double answer = 0;
+        double n = (double)classes.size();
+        priority_queue<pair<double,int>> pq;
+        for(int i=0;i<classes.size();i++)
+        {
+            pq.push({profit(classes[i][0],classes[i][1]),i});
         }
-
-        while (extraStudents--) {
-            auto [pass, total] = pq.top();
+        while(extraStudents--)
+        {
+            auto score = pq.top();
             pq.pop();
-            pass++;
-            total++;
-            pq.push({pass, total});
+            int idx = score.second;
+            classes[idx][0]++;
+            classes[idx][1]++;
+            pq.push({profit(classes[idx][0],classes[idx][1]),idx});
         }
-
-        double ratio = 0;
-        while (!pq.empty()) {
-            auto [pass, total] = pq.top();
-            pq.pop();
-            ratio += (double)pass / total;
+        for(auto& c : classes)
+        {
+            answer += (double)c[0]/c[1];
         }
-
-        return ratio / classes.size();
+        return answer/n;
     }
 };
