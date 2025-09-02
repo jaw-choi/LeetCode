@@ -8,31 +8,38 @@ public:
         return a[0] < b[0];
     }
     int numberOfPairs(vector<vector<int>>& points) {
-        int answer = 0;
-        int prevMaxY = 0;
+        int ans = 0;
+        int n = points.size();
         sort(points.begin(),points.end(),cmp);
-        for(int i=0;i<points.size();i++)
+        for(int i=0;i<n;i++)
         {
-            for(int j=i+1;j<points.size();j++)
+            auto& pA = points[i];
+            for(int j=0;j<n;j++)
             {
-                if(i==j-2)
-                    prevMaxY = points[j-1][1];
-                if(i<=j-2)
-                {
-                    if(prevMaxY < points[j][1] && points[i][1] >= points[j][1])
-                        answer++;
-                    prevMaxY = max(prevMaxY,points[j][1]);
-
+                vector<int> pB = points[j];
+                if(i==j)continue;
+                if(!(pA[0]<=pB[0] && pA[1]>=pB[1])) continue;
+                if(n==2){
+                    ans++;
+                    continue;
                 }
-                else{
-                    if(points[i][1] < points[j][1])
+
+                bool flag = false;
+                for(int k=0;k<n;k++){
+                    if(k==i || k==j) continue;
+                    auto& pointTmp = points[k];
+                    bool isXContained =
+                        pointTmp[0] >= pA[0] && pointTmp[0] <= pB[0];
+                    bool isYContained =
+                        pointTmp[1] <= pA[1] && pointTmp[1] >= pB[1];
+                    if(isXContained && isYContained){
+                        flag = true;
                         break;
-                    else
-                        answer++;
+                    }
                 }
-
+                if(!flag) ans++;
             }
         }
-        return answer;
+        return ans;
     }
 };
