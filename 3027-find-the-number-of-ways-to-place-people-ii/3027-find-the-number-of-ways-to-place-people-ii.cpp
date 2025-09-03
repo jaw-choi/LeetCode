@@ -25,6 +25,7 @@ public:
                     if(yi==yj) break;
                 }
             }
+
         }
         return ans;
     }
