@@ -14,11 +14,6 @@ public:
         int cntVowel = CountVowel(s);
         if(cntVowel==0)
             return false;
-        if(cntVowel%2==1){
-            return true;
-        }
-        if(cntVowel%2==0)
-            return true;
-        return false;
+        return true;
     }
 };
