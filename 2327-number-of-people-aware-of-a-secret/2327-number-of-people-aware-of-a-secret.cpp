@@ -1,25 +1,20 @@
 class Solution {
 public:
-    int mod = 1e9 + 7;
     int peopleAwareOfSecret(int n, int delay, int forget) {
-        int ans = 0;
         vector<int> dp(n+1,0);
-        dp[1]=1;
+        int mod =1e9+7;
         long long share = 0;
-        for(int day = 2;day<=n;day++)
+        dp[1]=1;
+        for(int i=2;i<=n;i++)
         {
-            if(day-delay>0)//share
-            {
-                share = (share + dp[day-delay]+mod)%mod;
-            }
-            if(day-forget > 0)//forget
-            {
-                share = (share - dp[day-forget]+mod)%mod;
-            }
-            dp[day] = share;
+            if(i-delay>0)
+                share = (share + dp[i-delay] + mod)%mod;
+            if(i-forget>0)
+                share = (share - dp[i-forget]+mod)%mod;
+            dp[i] = share;
         }
-        long long know = 0;
-        for(int i = n - forget + 1;i<=n;i++)
+        long long know  = 0;
+        for(int i=n-forget+1;i<n+1;i++)
         {
             know = (know + dp[i])%mod;
         }
