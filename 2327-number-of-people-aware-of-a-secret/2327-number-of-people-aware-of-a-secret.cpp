@@ -11,17 +11,18 @@ public:
             if(today - delay >0)
             {
                 share = (share + dp[today - delay] + mod) % mod;
+            cout << "+"<<today << " : " << share << " " << dp[today-delay]<<endl;
             }
             if(today - forget > 0)
             {
                 share = (share - dp[today - forget] + mod)%mod;
+            //cout << "-"<<today << " : " << share << " " << dp[today-forget]<<endl;
             }
-            //cout << share <<endl;
             dp[today] = share;
+            //cout <<"dp"<<dp[today]<<endl;
         }
         for(int i=n-forget+1;i<=n;i++){
             answer = (answer + dp[i])%mod;
-            //cout << i<<" " << dp[i] << " " << answer <<endl;
         }
 
         return answer;
