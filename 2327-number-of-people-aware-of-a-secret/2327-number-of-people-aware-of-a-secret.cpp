@@ -11,7 +11,7 @@ public:
             if(today - delay >0)
             {
                 share = (share + dp[today - delay] + mod) % mod;
-            cout << "+"<<today << " : " << share << " " << dp[today-delay]<<endl;
+           // cout << "+"<<today << " : " << share << " " << dp[today-delay]<<endl;
             }
             if(today - forget > 0)
             {
