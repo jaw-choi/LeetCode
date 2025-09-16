@@ -20,8 +20,8 @@ public:
             while(st.size() >= 2) {
                 int right = st.top(); st.pop();
                 int left = st.top(); st.pop();
-                if (isNCP(left,right)) {
-                    LCM = getLCM(left,right);
+                if (gcd(left,right)!=1) {
+                    LCM = lcm(left,right);
                     st.push(LCM);
                     // cout << LCM << " " << left << " " << right << endl;
                 } else {
