@@ -10,8 +10,6 @@ public:
     vector<int> replaceNonCoprimes(vector<int>& nums) {
         vector<int> answer;
         stack<int> st;
-        int LCM = 0;
-        int prev = 0;
         int n = nums.size();
         int idx = 0;
         for(auto& x : nums) {
@@ -21,8 +19,7 @@ public:
                 int right = st.top(); st.pop();
                 int left = st.top(); st.pop();
                 if (gcd(left,right)!=1) {
-                    LCM = lcm(left,right);
-                    st.push(LCM);
+                    st.push(lcm(left,right));
                     // cout << LCM << " " << left << " " << right << endl;
                 } else {
                     st.push(left);
@@ -34,7 +31,6 @@ public:
         }
         while(!st.empty()) {
             int num = st.top();
-            cout << num << " ";
             st.pop();
             answer.push_back(num);
         }
