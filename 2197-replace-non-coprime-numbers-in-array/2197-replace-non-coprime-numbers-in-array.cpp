@@ -1,41 +1,34 @@
 class Solution {
 public:
-    bool isNCP(int a, int b) { return getGCM(a, b) > 1; }
-    int getGCM(int a, int b) {
-        if (b == 0)
-            return a;
-        return getGCM(b, a % b);
-    }
-    int getLCM(int a, int b) { return ((long long)a * b) / getGCM(a, b); }
     vector<int> replaceNonCoprimes(vector<int>& nums) {
-        vector<int> answer;
-        stack<int> st;
+        vector<int> ans;
         int n = nums.size();
-        int idx = 0;
-        for(auto& x : nums) {
+        stack<int> st;
+        for (auto& x : nums) {
             st.push(x);
 
-            while(st.size() >= 2) {
-                int right = st.top(); st.pop();
-                int left = st.top(); st.pop();
-                if (gcd(left,right)!=1) {
-                    st.push(lcm(left,right));
-                    // cout << LCM << " " << left << " " << right << endl;
+            while (st.size() > 1) {
+                int left = st.top();
+                st.pop();
+                int right = st.top();
+                st.pop();
+
+                if (gcd(left, right) > 1) {
+                    st.push(lcm(left, right));
                 } else {
-                    st.push(left);
                     st.push(right);
+                    st.push(left);
                     break;
                 }
             }
-
         }
-        while(!st.empty()) {
+
+        while (!st.empty()) {
             int num = st.top();
             st.pop();
-            answer.push_back(num);
+            ans.push_back(num);
         }
-        reverse(answer.begin(),answer.end());
-        return answer;
+        reverse(ans.begin(),ans.end());
+        return ans;
     }
 };
-auto init = atexit([]() { ofstream("display_runtime.txt") << "0"; });
