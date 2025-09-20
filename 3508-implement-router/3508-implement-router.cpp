@@ -1,26 +1,24 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 class Router {
 public:
     Router(int memoryLimit) : lmt(memoryLimit) {}
 
     bool addPacket(int source, int destination, int timestamp) {
         vector<int> packet = {source, destination, timestamp};
-        if (s.find(packet) != s.end()) return false;
-
-        if (q.size() == lmt) {
-            auto old = q.front(); q.pop();
+        if (s.find(packet) != s.end())
+            return false;
+        if (s.size() == lmt) {
+            auto old = q.front();
+            q.pop();
             s.erase(old);
 
             auto& vec = mp[old[1]];
             auto it = lower_bound(vec.begin(), vec.end(), old[2]);
-            if (it != vec.end() && *it == old[2]) vec.erase(it);
+            if (it != vec.end() && *it == old[2])
+                vec.erase(it);
         }
 
         s.insert(packet);
         q.push(packet);
-
         auto& vec = mp[destination];
         auto it = lower_bound(vec.begin(), vec.end(), timestamp);
         vec.insert(it, timestamp); // 항상 정렬 유지
@@ -28,19 +26,24 @@ public:
     }
 
     vector<int> forwardPacket() {
-        if (q.empty()) return {};
-        auto packet = q.front(); q.pop();
-        s.erase(packet);
+        if (!q.empty()) {
+            auto packet = q.front();
+            q.pop();
+            s.erase(packet);
 
-        auto& vec = mp[packet[1]];
-        auto it = lower_bound(vec.begin(), vec.end(), packet[2]);
-        if (it != vec.end() && *it == packet[2]) vec.erase(it);
+            auto& vec = mp[packet[1]];
+            auto it = lower_bound(vec.begin(), vec.end(), packet[2]);
+            if (it != vec.end() && *it == packet[2])
+                vec.erase(it);
 
-        return packet;
+            return packet;
+        }
+        return vector<int>();
     }
 
     int getCount(int destination, int startTime, int endTime) {
-        if (mp.find(destination) == mp.end()) return 0;
+        if (mp.find(destination) == mp.end())
+            return 0;
         auto& vec = mp[destination];
         auto it1 = lower_bound(vec.begin(), vec.end(), startTime);
         auto it2 = upper_bound(vec.begin(), vec.end(), endTime);
@@ -51,7 +54,13 @@ private:
     int lmt;
     set<vector<int>> s;
     queue<vector<int>> q;
-    map<int, vector<int>> mp; // 목적지별 정렬된 timestamp 저장
+    map<int, vector<int>> mp;
 };
 
-
+/**
+ * Your Router object will be instantiated and called as such:
+ * Router* obj = new Router(memoryLimit);
+ * bool param_1 = obj->addPacket(source,destination,timestamp);
+ * vector<int> param_2 = obj->forwardPacket();
+ * int param_3 = obj->getCount(destination,startTime,endTime);
+ */
