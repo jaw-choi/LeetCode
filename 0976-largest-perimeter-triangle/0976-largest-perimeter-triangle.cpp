@@ -8,7 +8,7 @@ public:
         for(int i=nums.size()-3;i>=0;i--)
         {
             if(nums[i]+nums[i+1] > nums[i+2])
-                ans = max(ans,nums[i]+nums[i+1]+nums[i+2]);
+                return nums[i]+nums[i+1]+nums[i+2];
         }
         return ans;
     }//2,3,3,4
