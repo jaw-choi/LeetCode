@@ -4,11 +4,15 @@ public:
         int n = nums.size();
         if(n==1)
             return nums[0];
-        vector<int> next(n-1);
-        for(int i=0;i<n-1;i++)
+
+        for(int j=n-1;j>=0;j--)
         {
-            next[i] = (nums[i]+nums[i+1])%10;
+            for(int i=0;i<j;i++)
+            {
+                nums[i] = (nums[i]+nums[i+1])%10;
+            }
         }
-        return triangularSum(next);
+
+        return nums[0];
     }
 };
