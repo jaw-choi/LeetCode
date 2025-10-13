@@ -6,13 +6,13 @@ public:
         int ans = 0;
         while(right<n)
         {
+            ans = max(ans,prices[right]-prices[left]);
             if(prices[left] <= prices[right])
                 right++;
             else{
                 left++;
                 right = left+1;
             }
-            ans = max(ans,prices[right]-prices[left]);
         }
         return ans;
     }
