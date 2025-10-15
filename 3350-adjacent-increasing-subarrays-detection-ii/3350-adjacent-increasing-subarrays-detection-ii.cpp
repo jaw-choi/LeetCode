@@ -9,46 +9,31 @@ static const int init = [] {
 }();
 class Solution {
 public:
-    int maxIncreasingSubarrays(vector<int>& nums) {
-        vector<int> num(nums.size(),0);
-        vector<int> s;
-        int k=1;
-        int ans = 0;
-        for(int i=0;i<nums.size()-1;i++)
-        {
-            num[i] = k;
-            if(nums[i] < nums[i+1])
-                k++;
-            else{
-                s.push_back(k);
-                k=1;
-            }
-            if(i==nums.size()-2)
-            {
-                    num[i+1]=k;
-                if(nums[i] < nums[i+1])
-                {
-                    s.push_back(k);
-                }
-            }
-        }
+int maxIncreasingSubarrays(vector<int>& nums) {
+    int n = (int)nums.size();
+    if (n <= 1) return 1;
 
-        for(int i=0;i<s.size()-1;i++)
-        {
+    vector<int> runs;
+    int len = 1;
 
-            int tmp = min(s[i],s[i+1]);
-            //cout << tmp << " ";
-            ans = max(ans,tmp);
-        }
-        if(s.size()==1)
-            ans = s[0]/2;
-        if(ans==1)
-        {
-            ans = *max_element(s.begin(),s.end())/2;
-        }
-        if(ans==0)
-            return 1;
-        ans = max(*max_element(s.begin(),s.end())/2, ans);
-        return ans;
+    // Build lengths of strictly-increasing runs
+    for (int i = 1; i < n; ++i) {
+        if (nums[i - 1] < nums[i]) ++len;
+        else { runs.push_back(len); len = 1; }
     }
+    runs.push_back(len);
+
+    int best = 0;
+
+    // Case 1: two adjacent increasing runs — take min of the pair
+    for (size_t i = 0; i + 1 < runs.size(); ++i)
+        best = max(best, min(runs[i], runs[i + 1]));
+
+    // Case 2: single run can be split into two — take floor(maxRun/2)
+    int maxRun = *max_element(runs.begin(), runs.end());
+    best = max(best, maxRun / 2);
+
+    // Fallback to 1 if everything collapses
+    return max(best, 1);
+}
 };
