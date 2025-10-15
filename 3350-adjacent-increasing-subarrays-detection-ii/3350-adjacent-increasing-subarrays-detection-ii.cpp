@@ -14,6 +14,7 @@ int maxIncreasingSubarrays(vector<int>& nums) {
     if (n <= 1) return 1;
 
     vector<int> runs;
+    runs.reserve(n);
     int len = 1;
 
     // Build lengths of strictly-increasing runs
