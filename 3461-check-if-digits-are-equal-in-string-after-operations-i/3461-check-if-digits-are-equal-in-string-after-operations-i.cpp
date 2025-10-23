@@ -14,7 +14,6 @@ public:
         while(s.size()!=2)
         {
             s = operation(s);
-            cout << s << endl;
         }
         return s[0]==s[1];
     }
