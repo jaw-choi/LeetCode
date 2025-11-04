@@ -14,9 +14,10 @@ public:
                 pq.push({m.second, m.first});
             
             tmp = 0;
-            for (int j = 0; j < x; j++) {
-                if(pq.size()==0) break;
+            for (int j = 0; j < x && !pq.empty(); j++) {
+                //if(pq.size()==0) break;
                 auto [cnt, num] = pq.top();
+                //cout << cnt << " " << num << endl;
                 pq.pop();
                 tmp += (cnt * num);
             }
