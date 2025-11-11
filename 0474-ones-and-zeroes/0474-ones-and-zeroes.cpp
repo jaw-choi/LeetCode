@@ -4,8 +4,7 @@ public:
         vector<vector<int> > dp(m+1, vector<int>(n+1, 0));
         for(auto& str : strs)
         {
-            if(str.size()>m+n)
-                continue;
+
             int zeroes = ranges::count(str,'0');
             int ones = str.size() - zeroes;
             for(int i=m;i>=zeroes;i--){
