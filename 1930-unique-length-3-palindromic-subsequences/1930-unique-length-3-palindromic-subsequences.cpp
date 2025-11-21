@@ -1,44 +1,32 @@
 class Solution {
 public:
     int countPalindromicSubsequence(string s) {
-        map<char, int> mp;
-        int ans = 0;
-        vector<int> visited(26, 0);
-        int left = 0;
-        int right = s.size() - 1;
-        int n = s.size();
-        while (left < n) {
-            int x = s[left] - 'a';
-            if (visited[x] == 1) {
-                left++;
-                continue;
+        vector<int> first = vector(26, -1);
+        vector<int> last = vector(26, -1);
+        
+        for (int i = 0; i < s.size(); i++) {
+            int curr = s[i] - 'a';
+            if (first[curr] == - 1) {
+                first[curr] = i;
             }
-
-            int right = n - 1;
-            // 오른쪽에서 같은 문자 찾기
-            while (right > left && s[right] != s[left]) {
-                right--;
-            }
-
-
-            if (right == left) {
-                // 같은 문자를 못 찾음
-                left++;
-                continue;
-            }
-            vector<int> seen(26, 0);
-            for (int i = left + 1; i < right; i++) {
-                seen[s[i] - 'a'] = 1;
-            }
-
-            int cnt = 0;
-            for (int i = 0; i < 26; i++) cnt += seen[i];
-
-            ans += cnt;
-
-            visited[x] = 1;
-            left++;
+            
+            last[curr] = i;
         }
+        
+        int ans = 0;
+        for (int i = 0; i < 26; i++) {
+            if (first[i] == -1) {
+                continue;
+            }
+            
+            unordered_set<char> between;
+            for (int j = first[i] + 1; j < last[i]; j++) {
+                between.insert(s[j]);
+            }
+            
+            ans += between.size();
+        }
+        
         return ans;
     }
 };
