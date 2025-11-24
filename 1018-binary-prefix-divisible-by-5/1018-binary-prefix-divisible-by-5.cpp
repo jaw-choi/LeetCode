@@ -8,17 +8,12 @@ public:
             if(nums[i]==1)
                 num++;
             
-            if(num%5==0){
+            if(num%5==0)
                 ans.push_back(true);
-                cout << num <<"true" <<endl;
-            }
-            else{
+            else
                 ans.push_back(false);
-                cout << num <<"false" <<endl;
-
-            }
-            num <<=1;
-            num = num %10;
+            num <<= 1;
+            num %= 10;
         }
         return ans;
     }
