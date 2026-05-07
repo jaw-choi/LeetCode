@@ -17,4 +17,16 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0110-balanced-binary-tree](https://github.com/jaw-choi/LeetCode/tree/main/0110-balanced-binary-tree/) | Easy |
+## Array
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1861-rotating-the-box](https://github.com/jaw-choi/LeetCode/tree/main/1861-rotating-the-box/) | Medium |
+## Two Pointers
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1861-rotating-the-box](https://github.com/jaw-choi/LeetCode/tree/main/1861-rotating-the-box/) | Medium |
+## Matrix
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1861-rotating-the-box](https://github.com/jaw-choi/LeetCode/tree/main/1861-rotating-the-box/) | Medium |
 <!---LeetCode Topics End-->
