@@ -20,6 +20,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1665-minimum-initial-energy-to-finish-tasks](https://github.com/jaw-choi/LeetCode/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
 | [1861-rotating-the-box](https://github.com/jaw-choi/LeetCode/tree/main/1861-rotating-the-box/) | Medium |
 ## Two Pointers
 | Problem Name | Difficulty |
@@ -29,4 +30,12 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [1861-rotating-the-box](https://github.com/jaw-choi/LeetCode/tree/main/1861-rotating-the-box/) | Medium |
+## Greedy
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1665-minimum-initial-energy-to-finish-tasks](https://github.com/jaw-choi/LeetCode/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
+## Sorting
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1665-minimum-initial-energy-to-finish-tasks](https://github.com/jaw-choi/LeetCode/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
 <!---LeetCode Topics End-->
