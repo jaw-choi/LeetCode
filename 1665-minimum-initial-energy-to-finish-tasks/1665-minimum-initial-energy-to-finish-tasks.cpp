@@ -16,14 +16,10 @@ public:
         sort(tasks.begin(), tasks.end(), cmp1);
         ans = tasks[0][1];
         sort(tasks.begin(), tasks.end(), cmp2);
-        int cnt1 = -1;
         int tmp = ans;
         int cnt = 0;
         for (int i=0;i<tasks.size();i++)
         {
-            cout << tasks[i][1] << endl;
-            if(ans == tasks[i][1])
-                cnt1++;
 
             if(i==tasks.size()-1)
             {
