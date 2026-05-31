@@ -21,6 +21,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0961-n-repeated-element-in-size-2n-array](https://github.com/jaw-choi/LeetCode/tree/main/0961-n-repeated-element-in-size-2n-array/) | Easy |
 | [1306-jump-game-iii](https://github.com/jaw-choi/LeetCode/tree/main/1306-jump-game-iii/) | Medium |
 | [1340-jump-game-v](https://github.com/jaw-choi/LeetCode/tree/main/1340-jump-game-v/) | Hard |
 | [1665-minimum-initial-energy-to-finish-tasks](https://github.com/jaw-choi/LeetCode/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
@@ -55,6 +56,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Hash Table
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0961-n-repeated-element-in-size-2n-array](https://github.com/jaw-choi/LeetCode/tree/main/0961-n-repeated-element-in-size-2n-array/) | Easy |
 | [2540-minimum-common-value](https://github.com/jaw-choi/LeetCode/tree/main/2540-minimum-common-value/) | Easy |
 | [3043-find-the-length-of-the-longest-common-prefix](https://github.com/jaw-choi/LeetCode/tree/main/3043-find-the-length-of-the-longest-common-prefix/) | Medium |
 ## Binary Search
