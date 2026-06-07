@@ -9,6 +9,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0110-balanced-binary-tree](https://github.com/jaw-choi/LeetCode/tree/main/0110-balanced-binary-tree/) | Easy |
+| [2196-create-binary-tree-from-descriptions](https://github.com/jaw-choi/LeetCode/tree/main/2196-create-binary-tree-from-descriptions/) | Medium |
 ## Depth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -18,6 +19,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0110-balanced-binary-tree](https://github.com/jaw-choi/LeetCode/tree/main/0110-balanced-binary-tree/) | Easy |
+| [2196-create-binary-tree-from-descriptions](https://github.com/jaw-choi/LeetCode/tree/main/2196-create-binary-tree-from-descriptions/) | Medium |
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -28,6 +30,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1861-rotating-the-box](https://github.com/jaw-choi/LeetCode/tree/main/1861-rotating-the-box/) | Medium |
 | [2126-destroying-asteroids](https://github.com/jaw-choi/LeetCode/tree/main/2126-destroying-asteroids/) | Medium |
 | [2144-minimum-cost-of-buying-candies-with-discount](https://github.com/jaw-choi/LeetCode/tree/main/2144-minimum-cost-of-buying-candies-with-discount/) | Easy |
+| [2196-create-binary-tree-from-descriptions](https://github.com/jaw-choi/LeetCode/tree/main/2196-create-binary-tree-from-descriptions/) | Medium |
 | [2540-minimum-common-value](https://github.com/jaw-choi/LeetCode/tree/main/2540-minimum-common-value/) | Easy |
 | [3043-find-the-length-of-the-longest-common-prefix](https://github.com/jaw-choi/LeetCode/tree/main/3043-find-the-length-of-the-longest-common-prefix/) | Medium |
 ## Two Pointers
@@ -60,6 +63,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0961-n-repeated-element-in-size-2n-array](https://github.com/jaw-choi/LeetCode/tree/main/0961-n-repeated-element-in-size-2n-array/) | Easy |
+| [2196-create-binary-tree-from-descriptions](https://github.com/jaw-choi/LeetCode/tree/main/2196-create-binary-tree-from-descriptions/) | Medium |
 | [2540-minimum-common-value](https://github.com/jaw-choi/LeetCode/tree/main/2540-minimum-common-value/) | Easy |
 | [3043-find-the-length-of-the-longest-common-prefix](https://github.com/jaw-choi/LeetCode/tree/main/3043-find-the-length-of-the-longest-common-prefix/) | Medium |
 ## Binary Search
